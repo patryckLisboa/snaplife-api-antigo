@@ -56,8 +56,4 @@ public class NutricionistaService {
 
 	}
 
-	public void saveAll(List<Nutricionista> asList) {
-		// TODO Auto-generated method stub
-		
-	}
 }

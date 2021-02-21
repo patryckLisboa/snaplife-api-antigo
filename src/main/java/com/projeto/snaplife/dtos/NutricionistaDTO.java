@@ -3,6 +3,7 @@ import javax.persistence.Column;
 import org.hibernate.validator.constraints.Length;
 
 import com.projeto.snaplife.domain.GenericDomain;
+import com.projeto.snaplife.domain.Nutricionista;
 
 public class NutricionistaDTO extends GenericDomain {
 
@@ -22,6 +23,9 @@ public class NutricionistaDTO extends GenericDomain {
 	public NutricionistaDTO() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	public NutricionistaDTO(Nutricionista obj) {
+		
 	}
 	public String getCertificados() {
 		return certificados;
