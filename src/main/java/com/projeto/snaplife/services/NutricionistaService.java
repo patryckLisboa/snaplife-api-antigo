@@ -51,7 +51,7 @@ public class NutricionistaService {
 			nutricionistaRepository.deleteById(id);
 		} catch (DataIntegrityViolationException e) { // do spring
 			throw new DataIntegrityViolationException(
-					"Categoria não pode ser deletado. Pois possui livros associados");
+					"Objeto não pode ser deletado. Pois possui objetos associados a ele");
 		}
 
 	}

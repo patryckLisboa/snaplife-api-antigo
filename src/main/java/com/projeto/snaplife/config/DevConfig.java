@@ -1,5 +1,7 @@
 package com.projeto.snaplife.config;
 
+import java.text.ParseException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -19,7 +21,7 @@ public class DevConfig {
 	private String strategy;
 	
 	@Bean
-	public boolean instanciaBaseDeDados() {
+	public boolean instanciaBaseDeDados() throws ParseException {
 		if(strategy.equals("create")) {
 			this.dbService.instanciaBaseDeDados();
 		}
