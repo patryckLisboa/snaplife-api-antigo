@@ -7,10 +7,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.projeto.snaplife.domain.Consulta;
+import com.projeto.snaplife.domain.Refeicao;
 
 @Repository
-public interface ConsultaRepository extends JpaRepository<Consulta, Long>{
-	@Query("SELECT obj FROM Consulta obj WHERE obj.cliente.id = :id_cli ORDER BY codigo")	
-	List<Consulta> findAllByCliente(@Param(value = "id_cli") Long id_cli);
+public interface RefeicaoRepository extends JpaRepository<Refeicao, Long>{
+	@Query("SELECT obj FROM Refeicao obj WHERE obj.prescricaoDietetica.id = :id_pres ORDER BY codigo")	
+	List<Refeicao> findAllByPrescricao(@Param(value = "id_pres") Long id_pres);
 }

@@ -1,5 +1,7 @@
 package com.projeto.snaplife.services;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,7 +63,13 @@ public class ConsultaService {
 		obj.setCodigo(null);
 		Cliente cli = clienteService.findById(id_cli);
 		
+		Calendar c = Calendar.getInstance();
+		
 		obj.setCliente(cli);
+		obj.setDataConsulta(c.getTime());
+		obj.setGastoEnergTot(obj.getTaxaMB().multiply(obj.getFatorAtividade()));
+		obj.setIdade(c.get(Calendar.YEAR) - toCalendar(cli.getDataNascimento()).get(Calendar.YEAR));
+		
 		return consultaRepository.save(obj);
 	}
 
@@ -69,5 +77,11 @@ public class ConsultaService {
 		Consulta obj = findById(id); // validação para ver se obj existe
 		consultaRepository.delete(obj);
 	}
+	
+	public static Calendar toCalendar(Date date){ 
+		  Calendar cal = Calendar.getInstance();
+		  cal.setTime(date);
+		  return cal;
+		}
 
 }
